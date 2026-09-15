@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Publisher.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "--mode book --base-path /book --output-path C:\\Users\\caloni\\journal\\publish\\output\\kindle --journal-path C:\\Users\\caloni\\journal\\journal.md --single-post-mode 0 --use-templates 1 --links C:\\Users\\caloni\\journal\\links.yaml",
+      "workingDirectory": "C:\\Users\\caloni\\journal"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36811.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publisher.Console", "Publisher.Console\Publisher.Console.csproj", "{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C23AED15-9519-4F94-B6B6-8DC94E903041} = {C23AED15-9519-4F94-B6B6-8DC94E903041}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publisher.Core", "Publisher.Core\Publisher.Core.csproj", "{C23AED15-9519-4F94-B6B6-8DC94E903041}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publisher.PythonAwk", "Publisher.PythonAwk", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		BlogWriter.awk = BlogWriter.awk
+		body2graph.py = body2graph.py
+		BookWriter.awk = BookWriter.awk
+		build.py = build.py
+		clippings2draft.py = clippings2draft.py
+		journal2blog.py = journal2blog.py
+		journal2book.py = journal2book.py
+		journal2journal.py = journal2journal.py
+		MarkdownParser.awk = MarkdownParser.awk
+		MetadataParser.awk = MetadataParser.awk
+		MetadataWriter.awk = MetadataWriter.awk
+		movie_info.py = movie_info.py
+		publish.py = publish.py
+		publisher2.py = publisher2.py
+		publish_blog.py = publish_blog.py
+		publish_book.py = publish_book.py
+		Util.awk = Util.awk
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publisher.Tests", "Publisher.Tests\Publisher.Tests.csproj", "{390ECF3D-D06C-444D-9933-A1D545C6AF7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Debug|x64.Build.0 = Debug|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Debug|x86.Build.0 = Debug|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Release|x64.ActiveCfg = Release|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Release|x64.Build.0 = Release|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Release|x86.ActiveCfg = Release|Any CPU
+		{91C1181F-E427-4EFE-C4DD-C3F3772F33EA}.Release|x86.Build.0 = Release|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Debug|x64.Build.0 = Debug|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Debug|x86.Build.0 = Debug|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Release|x64.ActiveCfg = Release|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Release|x64.Build.0 = Release|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Release|x86.ActiveCfg = Release|Any CPU
+		{C23AED15-9519-4F94-B6B6-8DC94E903041}.Release|x86.Build.0 = Release|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Debug|x64.Build.0 = Debug|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Debug|x86.Build.0 = Debug|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Release|x64.ActiveCfg = Release|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Release|x64.Build.0 = Release|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Release|x86.ActiveCfg = Release|Any CPU
+		{390ECF3D-D06C-444D-9933-A1D545C6AF7B}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27ABCFCD-9C9B-4FDF-AC94-AB263ED22A02}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,14 @@
+# External links for Publisher
+# Each entry maps a "Quoted Title" found in post text to an external URL.
+# When text like "My Favorite Tool" appears quoted in a post and no internal
+# post with that exact title exists, it will be linked to the URL below.
+#
+# Fields:
+#   title: the exact quoted text as it appears in the source markdown (case-sensitive)
+#   url:   the external URL to link to
+
+- title: GitHub
+  url: https://github.com
+
+- title: Hacker News
+  url: https://news.ycombinator.com

@@ -1,0 +1,6 @@
+__pycache__/
+*.swp
+*.log
+.vs/
+obj/
+bin/
