@@ -464,24 +464,80 @@ namespace Publisher.Core.Writers
             sb.AppendLine("<h1 class=\"toc-title\">Contents</h1>");
             sb.AppendLine("<p id=\"indx-1\" class=\"toca\"><a href=\"index.xhtml\"><strong>Index</strong></a></p>");
             
-            string lastYear = "2000";
-            foreach (var chapter in _chapters.Keys.OrderBy(k => k))
+            string? lastYear = null;
+            var validChapters = _chapters.Keys
+                .Where(k => !string.IsNullOrEmpty(k) && k.Length >= 7)
+                .OrderBy(k => k)
+                .ToList();
+
+            foreach (var chapter in validChapters)
             {
                 var year = chapter.Substring(0, 4);
                 var month = chapter.Substring(5, 2);
-                
+
                 if (year != lastYear)
                 {
-                    if (lastYear != "2000")
+                    if (lastYear != null)
                         sb.AppendLine("</p>");
-                    sb.Append($"<p id=\"{ChapterToId(chapter)}\" class=\"toc\"><strong>{year}</strong>");
+                    sb.Append($"<p id=\"{ChapterToId(chapter)}\" class=\"toc\"><strong><a id=\"toc_{year}\" href=\"#{SlugToId(year)}\">{year}</a></strong>");
                     lastYear = year;
                 }
-                
+
                 sb.Append($"<a href=\"{ChapterToId(chapter)}.xhtml\"> {StringUtilities.TextToHtml(month)} </a>");
             }
-            
-            sb.AppendLine("</p>");
+
+            if (lastYear != null)
+                sb.AppendLine("</p>");
+
+            // Chronological post listing grouped by year and month
+            var postsByChapter = new Dictionary<string, List<string>>();
+            foreach (var slug in _state.PostSlugsInOrder)
+            {
+                if (!_state.Index.TryGetValue(slug, out var post))
+                    continue;
+
+                var chapter = post.Chapter ?? post.Month;
+                if (string.IsNullOrEmpty(post.Date) || string.IsNullOrEmpty(chapter))
+                    continue;
+
+                if (!postsByChapter.TryGetValue(chapter, out var chapterPosts))
+                {
+                    chapterPosts = new List<string>();
+                    postsByChapter[chapter] = chapterPosts;
+                }
+                chapterPosts.Add(slug);
+            }
+
+            var chaptersByYear = validChapters
+                .GroupBy(k => k.Substring(0, 4));
+
+            foreach (var yearGroup in chaptersByYear)
+            {
+                var year = yearGroup.Key;
+                sb.AppendLine($"<h2 id=\"{SlugToId(year)}\" class=\"toc-year\"><a href=\"toc.xhtml#indx-1\">{year}</a></h2>");
+
+                foreach (var chapter in yearGroup)
+                {
+                    var month = chapter.Substring(5, 2);
+                    sb.AppendLine($"<h3 class=\"toc-month\">{StringUtilities.TextToHtml(month)}</h3>");
+
+                    if (postsByChapter.TryGetValue(chapter, out var postSlugs) && postSlugs.Count > 0)
+                    {
+                        var orderedPosts = postSlugs
+                            .OrderBy(s => _state.Index[s].Date)
+                            .ToList();
+
+                        sb.AppendLine("<ul class=\"toc-posts\">");
+                        foreach (var slug in orderedPosts)
+                        {
+                            var post = _state.Index[slug];
+                            sb.AppendLine($"<li id=\"{SlugToId(slug)}\"><a href=\"{ChapterToId(chapter)}.xhtml#{SlugToId(slug)}\">{StringUtilities.TextToHtml(post.Title ?? "")}</a></li>");
+                        }
+                        sb.AppendLine("</ul>");
+                    }
+                }
+            }
+
             sb.AppendLine("<a id=\"piv\"></a>");
             sb.AppendLine("</div>");
             sb.AppendLine("</body>");
